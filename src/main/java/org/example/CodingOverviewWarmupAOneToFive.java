@@ -48,7 +48,7 @@ public class CodingOverviewWarmupAOneToFive {
        missingChar("kitten", 1) → "ktten"
        missingChar("kitten", 0) → "itten"
        missingChar("kitten", 4) → "kittn"*/
-    public String missingCharOps(String string , int numberOfMissingChar){
+    public String missCharOps(String string , int numberOfMissingChar){
         String firstPart = string.substring(0,numberOfMissingChar);
         String secondPart = string.substring(numberOfMissingChar+1);
         return firstPart + secondPart;
@@ -61,7 +61,7 @@ public class CodingOverviewWarmupAOneToFive {
     backAround("cat") → "tcatt"
     backAround("Hello") → "oHelloo"
     backAround("a") → "aaa"*/
-    public String lastCharAdd(String string){
+    public String addLastChar(String string){
         String lastChar = string.substring(string.length()-1);
         return lastChar + string + lastChar;
     }

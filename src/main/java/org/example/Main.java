@@ -16,11 +16,11 @@ public class Main {
         System.out.println(codingOverviewWarmupAOneToFive.nearHundred(24));
 
         //Four
-        System.out.println(codingOverviewWarmupAOneToFive.missingCharOps("kitten", 5));
+        System.out.println(codingOverviewWarmupAOneToFive.missCharOps("kitten", 5));
         // kitte
 
         //Five
-        System.out.println(codingOverviewWarmupAOneToFive.lastCharAdd("Batman"));
+        System.out.println(codingOverviewWarmupAOneToFive.addLastChar("Batman"));
 
 
     }
