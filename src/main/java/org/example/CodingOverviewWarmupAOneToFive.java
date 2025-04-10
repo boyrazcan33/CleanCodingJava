@@ -1,6 +1,6 @@
 package org.example;
 
-public class CodingOverviewOneToFive {
+public class CodingOverviewWarmupAOneToFive {
 
     /* 1-) The parameter weekday is true if it is a weekday, and the parameter vacation is true
      if we are on vacation. We sleep in if it is not a weekday or we're on vacation. Return true if we sleep in.
@@ -39,14 +39,31 @@ public class CodingOverviewOneToFive {
     public boolean nearHundred(int number){
         return (Math.abs(100-number) <= 10 || Math.abs(200-number) <= 10);
 
-        /* 4-) Given a non-empty string and an int n, return a new string where the char at index n has been removed.
-         The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..str.length()-1 inclusive).
+    }
+
+    /* 4-) Given a non-empty string and an int n, return a new string where the char at index n has been removed.
+        The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..str.length()-1 inclusive).
 
 
-        missingChar("kitten", 1) → "ktten"
-        missingChar("kitten", 0) → "itten"
-        missingChar("kitten", 4) → "kittn"*/
+       missingChar("kitten", 1) → "ktten"
+       missingChar("kitten", 0) → "itten"
+       missingChar("kitten", 4) → "kittn"*/
+    public String missingCharOps(String string , int numberOfMissingChar){
+        String firstPart = string.substring(0,numberOfMissingChar);
+        String secondPart = string.substring(numberOfMissingChar+1);
+        return firstPart + secondPart;
+    }
 
+    /*5-) Given a string, take the last char and return a new string with the last char added at the front and back,
+     so "cat" yields "tcatt". The original string will be length 1 or more.
+
+
+    backAround("cat") → "tcatt"
+    backAround("Hello") → "oHelloo"
+    backAround("a") → "aaa"*/
+    public String lastCharAdd(String string){
+        String lastChar = string.substring(string.length()-1);
+        return lastChar + string + lastChar;
     }
 
 
