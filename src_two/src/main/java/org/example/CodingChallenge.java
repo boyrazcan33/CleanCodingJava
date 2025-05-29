@@ -187,6 +187,86 @@ Total = 6 coins
        return amount == 0 ? count : -1; // -1 means we couldn't make the amount
    }
 
+    /*Maximum Sum Subarray of Size K
+    Problem: Given an array and a number K, find the maximum sum of any subarray of size K.
+    Example:
+
+    Array: [2, 1, 5, 1, 3, 2], K = 3
+    Answer: 9 (subarray [5, 1, 3])*/
+    public static int findMaxSumSubarray(int[] arr, int k) {
+        if (arr.length < k) return -1; // not enough elements
+
+        int maxSum = 0;
+        int currentSum = 0;
+
+        // Calculate the sum of the first 'k' elements
+        for (int i = 0; i < k; i++) {
+            currentSum += arr[i];
+        }
+        maxSum = currentSum;
+
+        // Slide the window across the array
+        for (int i = k; i < arr.length; i++) {
+            currentSum += arr[i] - arr[i - k]; // add new element, remove oldest
+            maxSum = Math.max(maxSum, currentSum);
+        }
+
+        return maxSum;
+    }
+
+    /*Problem: Longest Substring Without Repeating Characters
+    Input: "abcabcbb"
+    Output: 3 (substring "abc")*/
+    public static int measureLengthOfLongestSubstring(String s) {
+        Set<Character> seen = new HashSet<>();
+        int left = 0, maxLength = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            while (seen.contains(s.charAt(right))) {
+                seen.remove(s.charAt(left));
+                left++;
+            }
+            seen.add(s.charAt(right));
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+
+    /*Two Sum II - Input Array is Sorted
+    Problem: Given a sorted array, find two numbers that add up to a target.
+    Return: The indices (1-indexed)
+    Example:
+
+    Array: [2, 7, 11, 15], Target: 9
+    Answer: [1, 2] (because 2 + 7 = 9)*/
+
+    public static int[] sumSorted(int[] numbers, int target) {
+        int left = 0;
+        int right = numbers.length - 1;
+
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
+            if (sum == target) {
+                return new int[]{left + 1, right + 1}; // return 1-based indices
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return new int[]{-1, -1}; // no solution found
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
