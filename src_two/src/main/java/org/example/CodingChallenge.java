@@ -258,6 +258,41 @@ Total = 6 coins
         return new int[]{-1, -1}; // no solution found
     }
 
+   /* Problem: Subarray Sum Equals K
+    Problem Statement:
+    Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals to k.
+            Examples:
+
+    Input: nums = [1,1,1], k = 2
+    Output: 2
+    Explanation: There are 2 subarrays with sum 2:
+            - [1,1] (indices 0-1)
+            - [1,1] (indices 1-2)*/
+
+    public static int getSubarraySum(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1); // Handle subarrays starting from index 0
+
+        int runningSum = 0;
+        int count = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            runningSum += nums[i];
+
+            // Check if (runningSum - k) exists
+            if (map.containsKey(runningSum - k)) {
+                count += map.get(runningSum - k);
+            }
+
+            // Store current runningSum
+            map.put(runningSum, map.getOrDefault(runningSum, 0) + 1);
+        }
+
+        return count;
+    }
+
+
+
 
 
 

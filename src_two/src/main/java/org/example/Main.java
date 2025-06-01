@@ -102,6 +102,9 @@ public class Main {
         //thirty
         System.out.println("Q30 : " + Arrays.toString(CodingChallenge.sumSorted(new int[]{2, 7, 11, 15}, 9)));
 
+        //thirty one
+        System.out.println("Q31 : " + CodingChallenge.getSubarraySum(new int[]{2, 7, 11, 15}, 9));
+
 
 
     }
